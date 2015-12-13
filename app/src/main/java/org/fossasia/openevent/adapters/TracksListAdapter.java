@@ -36,7 +36,6 @@ public class TracksListAdapter extends RecyclerView.Adapter<TracksListAdapter.Vi
         Track current = tracks.get(position);
         holder.title.setText(current.getName());
         holder.desc.setText(current.getDescription());
-
     }
 
     @Override

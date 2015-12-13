@@ -63,4 +63,8 @@
     <string name="download_complete">Download Done</string>
     <string name="share_links">Sharing URL</string>
     <string name="time_not_specified">Timings not specified</string>
+
+    <!-- Dummy Text -->
+    <string name="dummy_title">Dummy Title</string>
+    <string name="dummy_body">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s.</string>
 </resources>

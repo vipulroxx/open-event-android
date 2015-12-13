@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- TODO: Dynamic colors, should be configurable during build-->
     <color name="color_primary">#FFC107</color>
     <color name="color_primary_dark">#FF8F00</color>
     <color name="color_accent">#FFF8E1</color>
