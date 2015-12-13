@@ -19,7 +19,7 @@ import java.util.List;
 /**
  * Created by MananWason on 09-06-2015.
  */
-public class SponsorsListAdapter extends RecyclerView.Adapter<SponsorsListAdapter.Viewholder> {
+public class SponsorsListAdapter extends RecyclerView.Adapter<SponsorsListAdapter.ViewHolder> {
 
     List<Sponsor> sponsors;
 
@@ -28,15 +28,15 @@ public class SponsorsListAdapter extends RecyclerView.Adapter<SponsorsListAdapte
     }
 
     @Override
-    public SponsorsListAdapter.Viewholder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         View view = layoutInflater.inflate(R.layout.item_sponsor, parent, false);
-        Viewholder viewholder = new Viewholder(view);
-        return viewholder;
+        ViewHolder viewHolder = new ViewHolder(view);
+        return viewHolder;
     }
 
     @Override
-    public void onBindViewHolder(SponsorsListAdapter.Viewholder holder, int position) {
+    public void onBindViewHolder(ViewHolder holder, int position) {
         Sponsor currentSponsor = sponsors.get(position);
         DisplayMetrics displayMetrics = holder.sponsor_image.getContext().getResources().getDisplayMetrics();
         int width = displayMetrics.widthPixels;
@@ -59,10 +59,10 @@ public class SponsorsListAdapter extends RecyclerView.Adapter<SponsorsListAdapte
         return sponsors.size();
     }
 
-    public class Viewholder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         ImageView sponsor_image;
 
-        public Viewholder(View itemView) {
+        public ViewHolder(View itemView) {
             super(itemView);
             itemView.setClickable(true);
             itemView.setOnClickListener(this);

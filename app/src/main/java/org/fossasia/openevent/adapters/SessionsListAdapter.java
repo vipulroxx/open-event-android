@@ -14,7 +14,7 @@ import java.util.List;
 /**
  * Created by MananWason on 26-06-2015.
  */
-public class SessionsListAdapter extends RecyclerView.Adapter<SessionsListAdapter.Viewholder> {
+public class SessionsListAdapter extends RecyclerView.Adapter<SessionsListAdapter.ViewHolder> {
     List<Session> sessions;
 
     public SessionsListAdapter(List<Session> sessions) {
@@ -22,15 +22,15 @@ public class SessionsListAdapter extends RecyclerView.Adapter<SessionsListAdapte
     }
 
     @Override
-    public SessionsListAdapter.Viewholder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         View view = layoutInflater.inflate(R.layout.tracksactvity_item, parent, false);
-        Viewholder viewholder = new Viewholder(view);
-        return viewholder;
+        ViewHolder viewHolder = new ViewHolder(view);
+        return viewHolder;
     }
 
     @Override
-    public void onBindViewHolder(Viewholder holder, int position) {
+    public void onBindViewHolder(ViewHolder holder, int position) {
         Session current = sessions.get(position);
         String title = current.getTitle();
         String summary = current.getSummary();
@@ -94,11 +94,11 @@ public class SessionsListAdapter extends RecyclerView.Adapter<SessionsListAdapte
         notifyItemMoved(fromPosition, toPosition);
     }
 
-    class Viewholder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView sessionName;
         TextView sessionSummary;
 
-        public Viewholder(View itemView) {
+        public ViewHolder(View itemView) {
             super(itemView);
             itemView.setClickable(true);
             itemView.setOnClickListener(this);

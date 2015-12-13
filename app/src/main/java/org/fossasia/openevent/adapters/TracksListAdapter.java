@@ -15,7 +15,7 @@ import java.util.List;
 /**
  * Created by MananWason on 07-06-2015.
  */
-public class TracksListAdapter extends RecyclerView.Adapter<TracksListAdapter.Viewholder> {
+public class TracksListAdapter extends RecyclerView.Adapter<TracksListAdapter.ViewHolder> {
 
     List<Track> tracks;
 
@@ -24,15 +24,15 @@ public class TracksListAdapter extends RecyclerView.Adapter<TracksListAdapter.Vi
     }
 
     @Override
-    public TracksListAdapter.Viewholder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         View view = layoutInflater.inflate(R.layout.item_track, parent, false);
-        Viewholder viewholder = new Viewholder(view);
-        return viewholder;
+        ViewHolder viewHolder = new ViewHolder(view);
+        return viewHolder;
     }
 
     @Override
-    public void onBindViewHolder(TracksListAdapter.Viewholder holder, int position) {
+    public void onBindViewHolder(ViewHolder holder, int position) {
         Track current = tracks.get(position);
         holder.title.setText(current.getName());
         holder.desc.setText(current.getDescription());
@@ -104,11 +104,11 @@ public class TracksListAdapter extends RecyclerView.Adapter<TracksListAdapter.Vi
         notifyItemMoved(fromPosition, toPosition);
     }
 
-    class Viewholder extends RecyclerView.ViewHolder {
+    class ViewHolder extends RecyclerView.ViewHolder {
         TextView title;
         TextView desc;
 
-        public Viewholder(View itemView) {
+        public ViewHolder(View itemView) {
             super(itemView);
             itemView.setClickable(true);
 

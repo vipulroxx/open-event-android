@@ -15,7 +15,7 @@ import java.util.List;
 /**
  * Created by MananWason on 8/18/2015.
  */
-public class LocationsListAdapter extends RecyclerView.Adapter<LocationsListAdapter.Viewholder> {
+public class LocationsListAdapter extends RecyclerView.Adapter<LocationsListAdapter.ViewHolder> {
 
     List<Microlocation> microlocations;
 
@@ -24,16 +24,16 @@ public class LocationsListAdapter extends RecyclerView.Adapter<LocationsListAdap
     }
 
     @Override
-    public LocationsListAdapter.Viewholder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         View view = layoutInflater.inflate(R.layout.item_location, parent, false);
-        Viewholder viewholder = new Viewholder(view);
-        return viewholder;
+        ViewHolder viewHolder = new ViewHolder(view);
+        return viewHolder;
     }
 
 
     @Override
-    public void onBindViewHolder(LocationsListAdapter.Viewholder holder, int position) {
+    public void onBindViewHolder(ViewHolder holder, int position) {
         Microlocation current = microlocations.get(position);
         holder.name.setText(current.getName());
         holder.floor.setText("Floor : " + current.getFloor());
@@ -105,11 +105,11 @@ public class LocationsListAdapter extends RecyclerView.Adapter<LocationsListAdap
         notifyItemMoved(fromPosition, toPosition);
     }
 
-    class Viewholder extends RecyclerView.ViewHolder {
+    class ViewHolder extends RecyclerView.ViewHolder {
         TextView name;
         TextView floor;
 
-        public Viewholder(View itemView) {
+        public ViewHolder(View itemView) {
             super(itemView);
             itemView.setClickable(true);
 
